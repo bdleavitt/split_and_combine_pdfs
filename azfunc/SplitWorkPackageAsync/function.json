@@ -1,0 +1,12 @@
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "myblob",
+      "type": "blobTrigger",
+      "direction": "in",
+      "path": "aar/uploads/{filename}",
+      "connection": "ADLS_GEN2_CONNECTION_STRING"
+    }
+  ]
+}
