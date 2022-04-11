@@ -91,7 +91,7 @@ async def main(myblob: func.InputStream):
     if not os.path.exists(work_card_pdfs_temp_path):
         os.makedirs(work_card_pdfs_temp_path, exist_ok=True)    
 
-    results_by_task_card = combine_results_pdfs(form_results=form_results, pdf_output_path=work_card_pdfs_temp_path)
+    results_by_task_card = combine_results_pdfs(form_results=form_results, pdf_output_path=work_card_pdfs_temp_path, document_key_field=document_key_field)
     
     ## Upload finished PDFs to blob
     blob_conn_string = os.environ['ADLS_GEN2_CONNECTION_STRING']
