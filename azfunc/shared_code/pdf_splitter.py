@@ -8,8 +8,10 @@ def pdf_splitter(file_name, input_blob_bytes, output_directory, pdf_label) -> li
     logging.info(f'Splitting forms...')
     page_list = []
     
-    pdf = PdfFileReader(BytesIO(input_blob_bytes))
-    for page in range(pdf.getNumPages()):
+    num_pages = PdfFileReader(BytesIO(input_blob_bytes)).numPages
+
+    for page in range(num_pages):
+        pdf = PdfFileReader(BytesIO(input_blob_bytes))
         pdf_writer = PdfFileWriter()
         pdf_writer.addPage(pdf.getPage(page))
         output_directory_path = os.path.join(output_directory, pdf_label)
